@@ -1,0 +1,13 @@
+server:
+  port: 9002
+  context-path: /resource-server
+
+security:
+  basic:
+    enabled: false
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:9001/authorization-server/oauth/check_token
+    client:
+      client-id: foo-client-id
+      client-secret: 535ee78a-cc58-49aa-82f6-d976a79456ce
