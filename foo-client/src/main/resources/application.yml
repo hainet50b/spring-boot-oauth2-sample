@@ -4,6 +4,10 @@ resource-server:
 authorization-server:
   uri: http://localhost:9001/authorization-server
 
+spring:
+  thymeleaf:
+    mode: HTML
+
 security:
   oauth2:
     client:
