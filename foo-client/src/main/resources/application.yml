@@ -1,0 +1,16 @@
+resource-server:
+  uri: http://localhost:9002/resource-server
+
+authorization-server:
+  uri: http://localhost:9001/authorization-server
+
+security:
+  oauth2:
+    client:
+      client-id: foo-client-id
+      client-secret: 535ee78a-cc58-49aa-82f6-d976a79456ce
+      scope: resource.read, resource.write
+      user-authorization-uri: ${authorization-server.uri}/oauth/authorize
+      access-token-uri: ${authorization-server.uri}/oauth/token
+    resource:
+      user-info-uri: ${resource-server.uri}/user-info
