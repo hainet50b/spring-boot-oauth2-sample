@@ -1,9 +1,0 @@
-# IntelliJ IDEA
-*.iml
-
-# Gradle
-.gradle
-build/
-
-# General
-out/
