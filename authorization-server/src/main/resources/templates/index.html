@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja-jp" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Authorization Server Index</title>
+  </head>
+
+  <body>
+    <h1>Authorization Server Index</h1>
+    <h2>Authentication</h2>
+    <p>[[ ${#authentication} ]]</p>
+
+    <h2>Logout</h2>
+    <form th:action="@{/logout}" method="post">
+      <button>Logout</button>
+    </form>
+  </body>
+</html>
