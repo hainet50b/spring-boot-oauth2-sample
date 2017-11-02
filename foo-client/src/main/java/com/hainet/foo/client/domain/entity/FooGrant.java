@@ -1,4 +1,4 @@
-package com.hainet.bar.client.domain.entity;
+package com.hainet.foo.client.domain.entity;
 
 import lombok.Data;
 import org.seasar.doma.Entity;
@@ -8,7 +8,7 @@ import org.seasar.doma.Id;
 
 @Entity
 @Data
-public class Grant {
+public class FooGrant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

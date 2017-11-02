@@ -1,7 +1,7 @@
 package com.hainet.bar.client.security;
 
-import com.hainet.bar.client.domain.dao.GrantDao;
-import com.hainet.bar.client.domain.entity.Grant;
+import com.hainet.bar.client.domain.dao.BarGrantDao;
+import com.hainet.bar.client.domain.entity.BarGrant;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,14 +16,14 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class BarClientAuthoritiesExtractor implements AuthoritiesExtractor {
 
-    private final GrantDao dao;
+    private final BarGrantDao dao;
 
     @Override
     public List<GrantedAuthority> extractAuthorities(Map<String, Object> map) {
         return AuthorityUtils.commaSeparatedStringToAuthorityList(
                 dao.findByUsername(map.get("username").toString())
                         .stream()
-                        .map(Grant::getName)
+                        .map(BarGrant::getName)
                         .collect(Collectors.toList())
                         .toString()
                         .replaceAll("\\[", "")

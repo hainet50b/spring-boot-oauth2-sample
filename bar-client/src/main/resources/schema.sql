@@ -4,7 +4,7 @@ CREATE TABLE bar_user (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE grant (
+CREATE TABLE bar_grant (
   id INT AUTO_INCREMENT,
   name CHAR NOT NULL UNIQUE,
   PRIMARY KEY (id)
@@ -13,6 +13,6 @@ CREATE TABLE grant (
 CREATE TABLE bar_user_grant (
   id INT AUTO_INCREMENT,
   bar_user_id INT NOT NULL,
-  grant_id INT NOT NULL,
+  bar_grant_id INT NOT NULL,
   PRIMARY KEY (id)
 );

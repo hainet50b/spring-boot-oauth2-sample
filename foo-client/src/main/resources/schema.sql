@@ -4,7 +4,7 @@ CREATE TABLE foo_user (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE grant (
+CREATE TABLE foo_grant (
   id INT AUTO_INCREMENT,
   name CHAR NOT NULL UNIQUE,
   PRIMARY KEY (id)
@@ -13,6 +13,6 @@ CREATE TABLE grant (
 CREATE TABLE foo_user_grant (
   id INT AUTO_INCREMENT,
   foo_user_id INT NOT NULL,
-  grant_id INT NOT NULL,
+  foo_grant_id INT NOT NULL,
   PRIMARY KEY (id)
 );
