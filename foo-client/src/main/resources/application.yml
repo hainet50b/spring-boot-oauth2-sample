@@ -1,11 +1,11 @@
 server:
   port: 8081
 
-resource-server:
-  uri: http://localhost:9002/resource-server
-
 authorization-server:
   uri: http://localhost:9001/authorization-server
+
+resource-server:
+  uri: http://localhost:9002/resource-server
 
 spring:
   thymeleaf:
@@ -21,4 +21,3 @@ security:
       access-token-uri: ${authorization-server.uri}/oauth/token
     resource:
       user-info-uri: ${resource-server.uri}/user-info
-
