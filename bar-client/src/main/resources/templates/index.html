@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja-jp" xmlns:th="http://www.thymeleaf.org">
+<html lang="ja-jp">
   <head>
     <meta charset="UTF-8" />
     <title>Bar Client Index</title>
@@ -10,15 +10,5 @@
 
     <h2>Authentication</h2>
     <p>[[ ${#authentication} ]]</p>
-
-    <h2>Authorization</h2>
-    <form th:action="@{/read}" method="get">
-      <button type="submit">BAR_READ</button>
-    </form>
-    <span th:if="${bar_read}">You clicked FOO_READ successfully!</span>
-    <form th:action="@{/write}" method="post">
-      <button type="submit">BAR_WRITE</button>
-    </form>
-    <span th:if="${bar_write}">You clicked FOO_WRITE successfully!</span>
   </body>
 </html>
