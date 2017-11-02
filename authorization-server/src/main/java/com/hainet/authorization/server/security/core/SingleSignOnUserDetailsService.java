@@ -1,4 +1,4 @@
-package com.hainet.authorization.server.security;
+package com.hainet.authorization.server.security.core;
 
 import com.hainet.authorization.server.domain.dao.SingleSignOnUserDao;
 import com.hainet.authorization.server.domain.entity.SingleSignOnUser;

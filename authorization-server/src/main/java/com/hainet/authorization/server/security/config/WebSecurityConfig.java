@@ -1,5 +1,6 @@
-package com.hainet.authorization.server.security;
+package com.hainet.authorization.server.security.config;
 
+import com.hainet.authorization.server.security.core.SingleSignOnUserAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -9,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @EnableWebSecurity
 @RequiredArgsConstructor
-public class AuthorizationServerSecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

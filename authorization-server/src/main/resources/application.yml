@@ -6,17 +6,6 @@ spring:
   thymeleaf:
     mode: HTML
 
-security:
-  oauth2:
-    authorization:
-      check-token-access: isAuthenticated()
-    client:
-      client-id: foo-client-id
-      client-secret: 535ee78a-cc58-49aa-82f6-d976a79456ce
-      scope: resource.read, resource.write
-      auto-approve-scopes: resource.read, resource.write
-      authorized-grant-types: authorization_code
-
 encryptor:
   secret: 12345678901234567890123456789012
   salt: 12345678901234567890123456789012

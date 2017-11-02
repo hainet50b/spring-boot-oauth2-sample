@@ -1,4 +1,4 @@
-package com.hainet.authorization.server.security;
+package com.hainet.authorization.server.security.core;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationProvider;

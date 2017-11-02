@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
 
 resource-server:
   uri: http://localhost:9002/resource-server
@@ -14,11 +14,10 @@ spring:
 security:
   oauth2:
     client:
-      client-id: foo-client-id
-      client-secret: 535ee78a-cc58-49aa-82f6-d976a79456ce
+      client-id: bar-client-id
+      client-secret: 3aefd491-61ae-4423-8e7b-bfd6fd4b15d4
       scope: resource.read, resource.write
       user-authorization-uri: ${authorization-server.uri}/oauth/authorize
       access-token-uri: ${authorization-server.uri}/oauth/token
     resource:
       user-info-uri: ${resource-server.uri}/user-info
-
