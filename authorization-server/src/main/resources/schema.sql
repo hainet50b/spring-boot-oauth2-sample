@@ -13,7 +13,7 @@ CREATE TABLE oauth_client_details (
   PRIMARY KEY (client_id)
 );
 
-CREATE TABLE single_sign_on_user (
+CREATE TABLE sso_user (
   id INT AUTO_INCREMENT,
   username VARCHAR(30) NOT NULL UNIQUE,
   password CHAR(60) NOT NULL,

@@ -1,6 +1,6 @@
 SELECT
   /*%expand*/*
 FROM
-  single_sign_on_user
+  sso_user
 WHERE
   username = /* username */''

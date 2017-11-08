@@ -8,7 +8,7 @@ import org.seasar.doma.Id;
 
 @Entity
 @Data
-public class SingleSignOnUser {
+public class SsoUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

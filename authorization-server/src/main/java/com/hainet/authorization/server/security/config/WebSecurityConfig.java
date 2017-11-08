@@ -1,6 +1,6 @@
 package com.hainet.authorization.server.security.config;
 
-import com.hainet.authorization.server.security.core.SingleSignOnUserAuthenticationProvider;
+import com.hainet.authorization.server.security.core.SsoUserAuthenticationProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -23,7 +23,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .failureUrl("/login-error");
     }
 
-    private final SingleSignOnUserAuthenticationProvider provider;
+    private final SsoUserAuthenticationProvider provider;
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

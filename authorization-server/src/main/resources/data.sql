@@ -1,5 +1,5 @@
-INSERT INTO single_sign_on_user (username, password) VALUES ('hainet', '$2a$10$yD8EnTcQm5Awqc7VIzeaIezGJ5a.EguE/bySste4MlBVJ/DHxgDre');
-INSERT INTO single_sign_on_user (username, password) VALUES ('others', '$2a$10$/N85OnnC17pflcIwVtZuuukAgYmiI65L6BKN8Ta/MNMhXc1qZpBXi');
+INSERT INTO sso_user (username, password) VALUES ('hainet', '$2a$10$yD8EnTcQm5Awqc7VIzeaIezGJ5a.EguE/bySste4MlBVJ/DHxgDre');
+INSERT INTO sso_user (username, password) VALUES ('others', '$2a$10$/N85OnnC17pflcIwVtZuuukAgYmiI65L6BKN8Ta/MNMhXc1qZpBXi');
 
 INSERT INTO oauth_client_details (
   client_id,

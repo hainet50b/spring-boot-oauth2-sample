@@ -12,10 +12,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class SingleSignOnUserAuthenticationProvider implements AuthenticationProvider {
+public class SsoUserAuthenticationProvider implements AuthenticationProvider {
 
     private final PasswordEncoder passwordEncoder;
-    private final SingleSignOnUserDetailsService service;
+    private final SsoUserDetailsService service;
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {

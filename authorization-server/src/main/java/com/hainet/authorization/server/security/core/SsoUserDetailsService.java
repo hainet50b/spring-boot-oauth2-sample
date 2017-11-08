@@ -1,7 +1,7 @@
 package com.hainet.authorization.server.security.core;
 
-import com.hainet.authorization.server.domain.dao.SingleSignOnUserDao;
-import com.hainet.authorization.server.domain.entity.SingleSignOnUser;
+import com.hainet.authorization.server.domain.dao.SsoUserDao;
+import com.hainet.authorization.server.domain.entity.SsoUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
@@ -16,20 +16,20 @@ import java.util.Collections;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class SingleSignOnUserDetailsService implements UserDetailsService {
+public class SsoUserDetailsService implements UserDetailsService {
 
-    private final SingleSignOnUserDao dao;
+    private final SsoUserDao dao;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws AuthenticationException {
-        SingleSignOnUser singleSignOnUser = dao.findByUsername(username);
-        if (singleSignOnUser == null) {
+        SsoUser ssoUser = dao.findByUsername(username);
+        if (ssoUser == null) {
             throw new UsernameNotFoundException("Invalid Username!");
         }
 
         return new User(
-                singleSignOnUser.getUsername(),
-                singleSignOnUser.getPassword(),
+                ssoUser.getUsername(),
+                ssoUser.getPassword(),
                 Collections.emptyList());
     }
 }
