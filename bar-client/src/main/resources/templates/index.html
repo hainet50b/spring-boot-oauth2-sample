@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja-jp">
+<html lang="ja-jp" xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <title>Bar Client Index</title>
@@ -10,5 +10,10 @@
 
     <h2>Authentication</h2>
     <p>[[ ${#authentication} ]]</p>
+
+    <h2>Logout</h2>
+    <form th:action="@{/logout}" method="post">
+      <button type="submit">LOGOUT</button>
+    </form>
   </body>
 </html>

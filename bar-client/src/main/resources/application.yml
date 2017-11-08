@@ -1,5 +1,6 @@
 server:
   port: 8082
+  context-path: /bar-client
 
 authorization-server:
   uri: http://localhost:9001/authorization-server
