@@ -21,7 +21,9 @@ public class SingleSignOnUserAuthenticationProvider implements AuthenticationPro
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         UserDetails userDetails = service.loadUserByUsername(authentication.getName());
 
-        if (!passwordEncoder.encode(authentication.getCredentials().toString()).equals(userDetails.getPassword())) {
+        if (!passwordEncoder.matches(
+                authentication.getCredentials().toString(),
+                userDetails.getPassword())) {
             throw new UsernameNotFoundException("Invalid password!");
         }
 
