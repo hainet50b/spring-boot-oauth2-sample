@@ -15,7 +15,7 @@ CREATE TABLE oauth_client_details (
 
 CREATE TABLE single_sign_on_user (
   id INT AUTO_INCREMENT,
-  username CHAR NOT NULL UNIQUE,
-  password CHAR NOT NULL,
+  username VARCHAR(30) NOT NULL UNIQUE,
+  password CHAR(60) NOT NULL,
   PRIMARY KEY (id)
 );

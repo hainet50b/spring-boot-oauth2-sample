@@ -2,7 +2,6 @@ package com.hainet.authorization.server.security.core;
 
 import com.hainet.authorization.server.domain.dao.SingleSignOnUserDao;
 import com.hainet.authorization.server.domain.entity.SingleSignOnUser;
-import com.hainet.authorization.server.util.AES256;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
@@ -20,7 +19,6 @@ import java.util.Collections;
 public class SingleSignOnUserDetailsService implements UserDetailsService {
 
     private final SingleSignOnUserDao dao;
-    private final AES256 aes256;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws AuthenticationException {
@@ -31,7 +29,7 @@ public class SingleSignOnUserDetailsService implements UserDetailsService {
 
         return new User(
                 singleSignOnUser.getUsername(),
-                aes256.decrypt(singleSignOnUser.getPassword()),
+                singleSignOnUser.getPassword(),
                 Collections.emptyList());
     }
 }

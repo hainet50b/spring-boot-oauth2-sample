@@ -6,9 +6,5 @@ spring:
   thymeleaf:
     mode: HTML
 
-encryptor:
-  secret: 12345678901234567890123456789012
-  salt: 12345678901234567890123456789012
-
 doma:
   naming: snake_upper_case
