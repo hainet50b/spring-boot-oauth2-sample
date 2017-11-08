@@ -20,5 +20,10 @@
       <button type="submit">FOO_WRITE</button>
     </form>
     <span th:if="${foo_write}">You clicked FOO_WRITE successfully!</span>
+
+    <h2>Logout</h2>
+    <form th:action="@{/logout}" method="post">
+      <button type="submit">LOGOUT</button>
+    </form>
   </body>
 </html>

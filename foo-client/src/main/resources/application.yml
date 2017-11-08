@@ -1,5 +1,6 @@
 server:
   port: 8081
+  context-path: /foo-client
 
 authorization-server:
   uri: http://localhost:9001/authorization-server

@@ -11,8 +11,6 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 
 @SpringBootApplication
-@EnableOAuth2Sso
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class FooClientApplication {
 
     public static void main(String[] args) {
