@@ -27,7 +27,5 @@ dependencies {
 
     compile('org.springframework.security.oauth:spring-security-oauth2')
 
-    compileOnly('org.projectlombok:lombok:1.16.18')
-
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
