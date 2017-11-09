@@ -16,14 +16,14 @@ public class FooClientController {
 
     @GetMapping("/read")
     @PreAuthorize("hasAuthority('FOO_READ')")
-    public String read(RedirectAttributes attr) {
+    public String read(final RedirectAttributes attr) {
         attr.addFlashAttribute("foo_read", true);
         return "redirect:/";
     }
 
     @PostMapping("/write")
     @PreAuthorize("hasAuthority('FOO_WRITE')")
-    public String write(RedirectAttributes attr) {
+    public String write(final RedirectAttributes attr) {
         attr.addFlashAttribute("foo_write", true);
         return "redirect:/";
     }

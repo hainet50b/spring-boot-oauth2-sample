@@ -18,9 +18,8 @@ public class SsoUserAuthenticationProvider implements AuthenticationProvider {
     private final SsoUserDetailsService service;
 
     @Override
-    public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        UserDetails userDetails = service.loadUserByUsername(authentication.getName());
-
+    public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
+        final UserDetails userDetails = service.loadUserByUsername(authentication.getName());
         if (!passwordEncoder.matches(
                 authentication.getCredentials().toString(),
                 userDetails.getPassword())) {
@@ -34,7 +33,7 @@ public class SsoUserAuthenticationProvider implements AuthenticationProvider {
     }
 
     @Override
-    public boolean supports(Class<?> token) {
+    public boolean supports(final Class<?> token) {
         return UsernamePasswordAuthenticationToken.class.isAssignableFrom(token);
     }
 }

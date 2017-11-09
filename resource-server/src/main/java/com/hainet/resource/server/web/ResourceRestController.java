@@ -11,9 +11,9 @@ import java.util.Map;
 public class ResourceRestController {
 
     @GetMapping("/user-info")
-    public Map<String, Object> userInfo(Authentication authentication) {
-        return new HashMap<String, Object>() {
-            {put("username", authentication.getName());}
-        };
+    public Map<String, Object> userInfo(final Authentication authentication) {
+        return new HashMap<String, Object>() {{
+            put("username", authentication.getName());
+        }};
     }
 }

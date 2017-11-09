@@ -21,10 +21,10 @@ public class SsoUserDetailsService implements UserDetailsService {
     private final SsoUserDao dao;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws AuthenticationException {
-        SsoUser ssoUser = dao.findByUsername(username);
+    public UserDetails loadUserByUsername(final String username) throws AuthenticationException {
+        final SsoUser ssoUser = dao.findByUsername(username);
         if (ssoUser == null) {
-            throw new UsernameNotFoundException("Invalid Username!");
+            throw new UsernameNotFoundException("Invalid username!");
         }
 
         return new User(

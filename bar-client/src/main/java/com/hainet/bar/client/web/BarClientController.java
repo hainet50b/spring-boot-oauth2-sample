@@ -16,14 +16,14 @@ public class BarClientController {
 
     @GetMapping("/read")
     @PreAuthorize("hasAuthority('BAR_READ')")
-    public String read(RedirectAttributes attr) {
+    public String read(final RedirectAttributes attr) {
         attr.addFlashAttribute("bar_read", true);
         return "redirect:/";
     }
 
     @PostMapping("/write")
     @PreAuthorize("hasAuthority('BAR_WRITE')")
-    public String write(RedirectAttributes attr) {
+    public String write(final RedirectAttributes attr) {
         attr.addFlashAttribute("bar_write", true);
         return "redirect:/";
     }

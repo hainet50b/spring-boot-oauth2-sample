@@ -14,7 +14,7 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
     private String authorizationServerUri;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(final HttpSecurity http) throws Exception {
         http
                 .antMatcher("/**").authorizeRequests()
                 .anyRequest().authenticated().and()

@@ -12,7 +12,7 @@ import java.io.IOException;
 public class LogoutController {
 
     @GetMapping("/user-logout")
-    public void userLogout(HttpServletRequest request, HttpServletResponse response) {
+    public void userLogout(final HttpServletRequest request, final HttpServletResponse response) {
         new SecurityContextLogoutHandler().logout(request, null, null);
 
         try {

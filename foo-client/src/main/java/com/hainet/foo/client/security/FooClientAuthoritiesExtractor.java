@@ -19,7 +19,7 @@ public class FooClientAuthoritiesExtractor implements AuthoritiesExtractor {
     private final FooGrantDao dao;
 
     @Override
-    public List<GrantedAuthority> extractAuthorities(Map<String, Object> map) {
+    public List<GrantedAuthority> extractAuthorities(final Map<String, Object> map) {
         return AuthorityUtils.commaSeparatedStringToAuthorityList(
                 dao.findByUsername(map.get("username").toString())
                         .stream()

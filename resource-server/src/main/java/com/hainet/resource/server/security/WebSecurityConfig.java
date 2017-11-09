@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 public class WebSecurityConfig extends ResourceServerConfigurerAdapter {
 
     @Override
-    public void configure(HttpSecurity http) throws Exception {
+    public void configure(final HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
                     .antMatchers(HttpMethod.GET).access("#oauth2.hasScope('resource.read')")
