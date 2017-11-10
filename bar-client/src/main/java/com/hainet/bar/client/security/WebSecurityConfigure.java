@@ -1,5 +1,6 @@
 package com.hainet.bar.client.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,6 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @EnableOAuth2Sso
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
 public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
 
     @Value("${authorization-server.uri}")
@@ -16,9 +18,10 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
         http
-                .antMatcher("/**").authorizeRequests()
-                .anyRequest().authenticated().and()
+                .authorizeRequests()
+                    .anyRequest().authenticated()
+                    .and()
                 .logout()
-                .logoutSuccessUrl(authorizationServerUri + "/user-logout");
+                    .logoutSuccessUrl(authorizationServerUri + "/user-logout");
     }
 }
