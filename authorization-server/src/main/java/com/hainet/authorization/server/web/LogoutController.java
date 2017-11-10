@@ -16,7 +16,7 @@ public class LogoutController {
         new SecurityContextLogoutHandler().logout(request, null, null);
 
         try {
-            response.sendRedirect(request.getHeader("referer"));
+            response.sendRedirect(request.getHeader("referer").split("\\?")[0]);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
