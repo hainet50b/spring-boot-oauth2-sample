@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja-jp" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bar Client Login Error</title>
+  </head>
+
+  <body>
+    <h1>Bar Client Login Error</h1>
+
+    <h2>What happened?</h2>
+    <p>You are not authorized user.</p>
+
+    <h2>Login with another account</h2>
+    <form th:action="@{/logout}" method="post">
+      <button type="submit">LOGIN WITH ANOTHER ACCOUNT</button>
+    </form>
+  </body>
+</html>
