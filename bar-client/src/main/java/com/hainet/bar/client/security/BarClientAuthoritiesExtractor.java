@@ -29,5 +29,4 @@ public class BarClientAuthoritiesExtractor implements AuthoritiesExtractor {
                         .replaceAll("\\[", "")
                         .replaceAll("]", ""));
     }
-
 }
