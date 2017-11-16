@@ -8,6 +8,10 @@
   <body>
     <h1>Authorization Server Login</h1>
 
+    <p th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null">
+      [[ ${session['SPRING_SECURITY_LAST_EXCEPTION'].message} ]]
+    </p>
+
     <h2>Login</h2>
     <p th:if="${error}">Wrong username or password</p>
     <form th:action="@{/login}" method="post">
