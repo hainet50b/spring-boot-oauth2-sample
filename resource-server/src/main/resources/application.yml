@@ -2,6 +2,13 @@ server:
   port: 9002
   context-path: /resource-server
 
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:./resource;AUTO_SERVER=true
+    username: sa
+    password:
+
 security:
   basic:
     enabled: false
@@ -11,3 +18,6 @@ security:
     client:
       client-id: foo-client-id
       client-secret: 535ee78a-cc58-49aa-82f6-d976a79456ce
+
+doma:
+  naming: snake_upper_case

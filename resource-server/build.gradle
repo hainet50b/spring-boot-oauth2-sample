@@ -11,7 +11,13 @@ buildscript {
 }
 
 apply plugin: 'java'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+
+processResources.destinationDir = compileJava.destinationDir
+compileJava.dependsOn processResources
+
+idea.module.outputDir = compileJava.destinationDir
 
 group = 'com.hainet'
 version = '1.0.0-SNAPSHOT'
@@ -26,6 +32,11 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
 
     compile('org.springframework.security.oauth:spring-security-oauth2')
+
+    compile('com.h2database:h2:1.4.196')
+    compile('org.seasar.doma.boot:doma-spring-boot-starter:1.1.1')
+
+    compileOnly('org.projectlombok:lombok:1.16.18')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
