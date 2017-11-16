@@ -1,4 +1,5 @@
-CREATE TABLE oauth_client_details (
+DROP TABLE IF EXISTS oauth_client_details;
+CREATE TABLE IF NOT EXISTS oauth_client_details (
   client_id VARCHAR(256),
   resource_ids VARCHAR(256),
   client_secret VARCHAR(256),
@@ -13,9 +14,12 @@ CREATE TABLE oauth_client_details (
   PRIMARY KEY (client_id)
 );
 
-CREATE TABLE sso_user (
+DROP TABLE IF EXISTS sso_user;
+CREATE TABLE IF NOT EXISTS sso_user (
   id INT AUTO_INCREMENT,
   username VARCHAR(30) NOT NULL UNIQUE,
   password CHAR(60) NOT NULL,
+  logged_in_at DATETIME,
+  failed_to_log_in_at DATETIME,
   PRIMARY KEY (id)
 );

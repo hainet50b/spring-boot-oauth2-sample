@@ -5,10 +5,11 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 @Component
 @RequiredArgsConstructor
@@ -19,16 +20,24 @@ public class SsoUserAuthenticationProvider implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(final Authentication authentication) throws AuthenticationException {
-        final UserDetails userDetails = service.loadUserByUsername(authentication.getName());
+        final SsoUserDetails ssoUserDetails = service.loadUserByUsername(authentication.getName());
         if (!passwordEncoder.matches(
                 authentication.getCredentials().toString(),
-                userDetails.getPassword())) {
+                ssoUserDetails.getPassword())) {
+            ssoUserDetails.getSsoUser().setFailedToLogInAt(LocalDateTime.now());
+            service.update(ssoUserDetails.getSsoUser());
+
             throw new UsernameNotFoundException("Invalid password!");
         }
 
+        ssoUserDetails.getSsoUser().setLoggedInAt(LocalDateTime.now());
+        service.update(ssoUserDetails.getSsoUser());
+
+        ssoUserDetails.getSsoUser().setPassword("[PROTECTED]");
+
         return new UsernamePasswordAuthenticationToken(
-                userDetails,
-                userDetails.getPassword(),
+                ssoUserDetails,
+                ssoUserDetails.getPassword(),
                 null);
     }
 
