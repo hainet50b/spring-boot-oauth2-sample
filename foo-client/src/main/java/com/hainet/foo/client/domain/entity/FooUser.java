@@ -1,10 +1,7 @@
 package com.hainet.foo.client.domain.entity;
 
 import lombok.Data;
-import org.seasar.doma.Entity;
-import org.seasar.doma.GeneratedValue;
-import org.seasar.doma.GenerationType;
-import org.seasar.doma.Id;
+import org.seasar.doma.*;
 
 import java.time.LocalDateTime;
 
@@ -18,7 +15,9 @@ public class FooUser {
 
     private String username;
 
+    @Transient
     LocalDateTime loggedInAt;
 
+    @Transient
     LocalDateTime failedToLogInAt;
 }

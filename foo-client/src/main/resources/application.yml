@@ -22,3 +22,6 @@ security:
       access-token-uri: ${authorization-server.uri}/oauth/token
     resource:
       user-info-uri: ${resource-server.uri}/user-info
+
+doma:
+  naming: snake_upper_case
