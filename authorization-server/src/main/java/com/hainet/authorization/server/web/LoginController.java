@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
     @GetMapping("/login")
-    public String login() {
-        return "login";
-    }
+    public String login(final Model model, final String error) {
+        if (error != null) {
+            model.addAttribute("error", true);
+        }
 
-    @GetMapping("/login-error")
-    public String loginError(final Model model) {
-        model.addAttribute("error", true);
         return "login";
     }
 }

@@ -19,8 +19,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .anyRequest().authenticated()
                     .and()
                 .formLogin()
-                    .loginPage("/login").permitAll()
-                    .failureUrl("/login-error");
+                    .loginPage("/login").permitAll();
     }
 
     private final SsoUserAuthenticationProvider provider;
