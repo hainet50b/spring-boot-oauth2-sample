@@ -8,3 +8,6 @@ build/
 
 # General
 out/
+
+# H2
+*.db
