@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.security.oauth2.resource.Principal
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.Map;
 
 @Component
@@ -21,12 +22,18 @@ public class FooClientPrincipalExtractor implements PrincipalExtractor {
 
     @Override
     public Object extractPrincipal(final Map<String, Object> map) {
-        FooUser fooUser = dao.findByUsername((String) map.get("username"));
-
+        final FooUser fooUser = dao.findByUsername((String) map.get("username"));
         if (fooUser == null) {
             throw new UsernameNotFoundException("Invalid username!");
-        } else {
-            return fooUser;
         }
+
+        if (map.get("logged_in_at") != null) {
+            fooUser.setLoggedInAt(LocalDateTime.parse((String) map.get("logged_in_at")));
+        }
+        if (map.get("failed_to_log_in_at") != null) {
+            fooUser.setFailedToLogInAt(LocalDateTime.parse((String) map.get("failed_to_log_in_at")));
+        }
+
+        return fooUser;
     }
 }

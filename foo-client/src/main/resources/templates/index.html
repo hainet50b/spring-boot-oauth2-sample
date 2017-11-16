@@ -11,6 +11,12 @@
     <h2>Authentication</h2>
     <p>[[ ${#authentication} ]]</p>
 
+    <h2>Login information</h2>
+    <p>
+      ログイン日時：[[ ${#authentication.principal.loggedInAt} ]]<br />
+      ログイン失敗日時：[[ ${#authentication.principal.failedToLogInAt} ]]
+    </p>
+
     <h2>Authorization</h2>
     <form th:action="@{/read}" method="get">
       <button type="submit">FOO_READ</button>

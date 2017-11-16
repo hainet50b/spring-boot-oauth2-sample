@@ -8,7 +8,7 @@ import org.seasar.doma.Id;
 
 @Entity
 @Data
-public class FooUser {
+public class FooUser extends SsoUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
