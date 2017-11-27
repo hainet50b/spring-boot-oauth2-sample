@@ -20,6 +20,9 @@ security:
       scope: resource.read, resource.write
       user-authorization-uri: ${authorization-server.uri}/oauth/authorize
       access-token-uri: ${authorization-server.uri}/oauth/token
+      # Optional: Authorizationサーバー認証後のリダイレクト先指定
+      use-current-uri: false
+      pre-established-redirect-uri: http://localhost:${server.port}/${server.context-path}/login
     resource:
       user-info-uri: ${resource-server.uri}/user-info
 
