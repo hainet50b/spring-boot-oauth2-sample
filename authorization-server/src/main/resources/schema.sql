@@ -14,6 +14,16 @@ CREATE TABLE IF NOT EXISTS oauth_client_details (
   PRIMARY KEY (client_id)
 );
 
+DROP TABLE IF EXISTS my_oauth_client_details;
+CREATE TABLE IF NOT EXISTS my_oauth_client_details (
+  my_client_id VARCHAR(256),
+  my_client_secret VARCHAR(256),
+  my_scope VARCHAR(256),
+  my_authorized_grant_types VARCHAR(256),
+  my_autoapprove VARCHAR(256),
+  PRIMARY KEY (my_client_id)
+);
+
 DROP TABLE IF EXISTS sso_user;
 CREATE TABLE IF NOT EXISTS sso_user (
   id INT AUTO_INCREMENT,

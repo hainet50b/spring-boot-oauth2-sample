@@ -1,5 +1,6 @@
 package com.hainet.authorization.server.security.config;
 
+import com.hainet.authorization.server.security.core.MyJdbcClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
@@ -22,9 +23,13 @@ public class AuthorizationServerConfigWithJdbc extends AuthorizationServerConfig
     @Qualifier("dataSource")
     private DataSource dataSource;
 
+    @Autowired
+    private MyJdbcClientDetailsService service;
+
     @Override
     public void configure(final ClientDetailsServiceConfigurer clients) throws Exception {
         clients
                 .jdbc(dataSource);
+//                .withClientDetails(service);
     }
 }

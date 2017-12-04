@@ -39,3 +39,30 @@ INSERT INTO oauth_client_details (
   'authorization_code',
   'resource.read,resource.write'
 );
+
+INSERT INTO my_oauth_client_details (
+  my_client_id,
+  my_client_secret,
+  my_scope,
+  my_authorized_grant_types,
+  my_autoapprove
+) VALUES (
+  'foo-client-id',
+  '535ee78a-cc58-49aa-82f6-d976a79456ce',
+  'resource.read,resource.write',
+  'authorization_code',
+  'resource.read,resource.write'
+);
+INSERT INTO my_oauth_client_details (
+  my_client_id,
+  my_client_secret,
+  my_scope,
+  my_authorized_grant_types,
+  my_autoapprove
+) VALUES (
+  'bar-client-id',
+  '3aefd491-61ae-4423-8e7b-bfd6fd4b15d4',
+  'resource.read,resource.write',
+  'authorization_code',
+  'resource.read,resource.write'
+);
