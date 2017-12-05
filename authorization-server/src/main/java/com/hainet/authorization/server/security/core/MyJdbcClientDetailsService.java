@@ -10,10 +10,12 @@ import org.springframework.security.oauth2.provider.ClientRegistrationException;
 import org.springframework.security.oauth2.provider.NoSuchClientException;
 import org.springframework.security.oauth2.provider.client.BaseClientDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Arrays;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MyJdbcClientDetailsService implements ClientDetailsService {
 
