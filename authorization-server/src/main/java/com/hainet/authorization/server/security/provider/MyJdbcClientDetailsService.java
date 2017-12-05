@@ -1,4 +1,4 @@
-package com.hainet.authorization.server.security.core;
+package com.hainet.authorization.server.security.provider;
 
 import com.hainet.authorization.server.domain.dao.MyOauthClientDetailsDao;
 import com.hainet.authorization.server.domain.entity.MyOauthClientDetails;
