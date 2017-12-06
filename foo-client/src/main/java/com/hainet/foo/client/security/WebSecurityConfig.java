@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @EnableOAuth2Sso
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Value("${authorization-server.uri}")
     private String authorizationServerUri;
@@ -20,6 +20,6 @@ public class WebSecurityConfigure extends WebSecurityConfigurerAdapter {
                     .anyRequest().authenticated()
                     .and()
                 .logout()
-                    .logoutSuccessUrl(authorizationServerUri + "/user-logout");
+                    .logoutSuccessUrl(authorizationServerUri + "/logout");
     }
 }

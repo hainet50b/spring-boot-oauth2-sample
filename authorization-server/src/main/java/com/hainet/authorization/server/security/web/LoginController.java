@@ -1,4 +1,4 @@
-package com.hainet.authorization.server.web;
+package com.hainet.authorization.server.security.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
