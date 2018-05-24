@@ -1,6 +1,7 @@
 package com.hainet.authorization.server.security.config;
 
 import com.hainet.authorization.server.security.core.SsoUserAuthenticationProvider;
+import com.hainet.authorization.server.security.web.SsoUserLoginFailureHandler;
 import com.hainet.authorization.server.security.web.SsoUserLogoutSuccessHandler;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @RequiredArgsConstructor
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final SsoUserLogoutSuccessHandler successHandler;
+    private final SsoUserLoginFailureHandler loginFailureHandler;
+    private final SsoUserLogoutSuccessHandler logoutSuccessHandler;
 
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
@@ -24,10 +26,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .and()
                 .formLogin()
                     .loginPage("/login").permitAll()
+                    .failureHandler(loginFailureHandler)
                     .and()
                 .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                    .logoutSuccessHandler(successHandler);
+                    .logoutSuccessHandler(logoutSuccessHandler);
                     // プログラマブルにログアウト処理を行う場合
                     // new SecurityContextLogoutHandler().logout(request, null, null);
     }
